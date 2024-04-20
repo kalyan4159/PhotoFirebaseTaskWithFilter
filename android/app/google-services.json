@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1026078898680",
+    "project_id": "photoappflutter",
+    "storage_bucket": "photoappflutter.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1026078898680:android:77c6ba0259a4afe62bfe0d",
+        "android_client_info": {
+          "package_name": "com.example.photo_app_firebase"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDoybeZ6LRZ3LI5ViuUhSRCumJfTZ29XXg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
