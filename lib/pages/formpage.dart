@@ -16,16 +16,12 @@ class _FormPageState extends State<FormPage> {
   final _formkey = GlobalKey<FormState>();
 
    final DatabaseService _databaseServicess=DatabaseService();
-
-  
   TextEditingController nameController = TextEditingController();
   TextEditingController imageURLController = TextEditingController();
   TextEditingController descriptionController = TextEditingController();
 
- 
   @override
   Widget build(BuildContext context) {
-   
      Color myOrangeColor = Color(0xFFF68F50);
     double textWidthSize = 150;
     double boxWidth=300;
@@ -48,8 +44,6 @@ class _FormPageState extends State<FormPage> {
                            width: boxWidth,
                            child: Column(
                             children: [
-                             
-                             
                               Padding(
                                 padding: const EdgeInsets.only(top:8.0),
                                 child: Row(
@@ -78,20 +72,18 @@ class _FormPageState extends State<FormPage> {
                                 ),
                                 minLines: 1,
                                 maxLines: 1,
-                                                        ),
+                                         ),
                                     )
-                                
                                   ],
                                 ),
                               ),
-               
                               Padding(
                                 padding: const EdgeInsets.only(top: 20),
                                 child: Row(
-                                                    children: [
-                                                      SizedBox(width: textWidthSize, child: const Text('Image URL',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 13),)),
-                                                      Expanded(
-                                                        child: TextFormField(
+                                 children: [
+                                   SizedBox(width: textWidthSize, child: const Text('Image URL',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 13),)),
+                                    Expanded(
+                                    child: TextFormField(
                                 controller: imageURLController,
                                 validator: (value) {
                                   if (value == null || value.isEmpty) {
@@ -100,7 +92,6 @@ class _FormPageState extends State<FormPage> {
                                   return null;
                                 },
                                  decoration:  InputDecoration(
-                                 
                                   contentPadding: EdgeInsets.symmetric(vertical: 7.0, horizontal: 20.0),
                                   hintText: 'Enter text',
                                   hintStyle: TextStyle(color:  Colors.grey.withOpacity(0.5)),
@@ -111,10 +102,10 @@ class _FormPageState extends State<FormPage> {
                                 ),
                                 minLines: 1,
                                 maxLines: 1,
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
+                                   ),
+                                  ),
+                                 ],
+                               ),
                               ),
                
                               Padding(
@@ -123,10 +114,10 @@ class _FormPageState extends State<FormPage> {
                                   bottom: 20,
                                 ),
                                 child: Row(
-                                                    children: [
-                                                      SizedBox(width: textWidthSize, child: Text('Description',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 13),)),
-                                                      Expanded(
-                                                        child: TextFormField(
+                                 children: [
+                                 SizedBox(width: textWidthSize, child: Text('Description',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 13),)),
+                                 Expanded(
+                                 child: TextFormField(
                                 controller: descriptionController,
                                 validator: (value) {
                                   if (value == null || value.isEmpty) {
@@ -146,12 +137,11 @@ class _FormPageState extends State<FormPage> {
                                 ),
                                 minLines: 1,
                                 maxLines: 1,
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                              ),
-               
+                                   ),
+                                 ),
+                                 ],
+                               ),
+                              ),            
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
@@ -170,50 +160,35 @@ class _FormPageState extends State<FormPage> {
                               'CANCEL',
                               style: TextStyle(color: Colors.white,fontWeight: FontWeight.w800),
                             ),
-                                    
-                                     ),
-                                    const SizedBox(width: 8.0),
-                                    MaterialButton(onPressed: (){
-                                      
-                                         String photographerName = nameController.text;
-                                  String imageURL = imageURLController.text;
-                                  String description = descriptionController.text;
-               
-                                  PhotoApp photoOne=PhotoApp(photographerName: photographerName, photoURL: imageURL, description: description, createdTime: Timestamp.now(), isLiked: false);
-                                  _databaseServicess.addPhotos(photoOne);
-                                   Navigator.of(context).pop();
-                                   nameController.clear();
-                                   imageURLController.clear();
-                                   descriptionController.clear();
-               
-                                       
-                                    },
-                                    color: Color(0xffff6d00),
+                            ),
+                            const SizedBox(width: 8.0),
+                            MaterialButton(onPressed: (){
+                            String photographerName = nameController.text;
+                            String imageURL = imageURLController.text;
+                            String description = descriptionController.text;
+                            PhotoApp photoOne=PhotoApp(photographerName: photographerName, photoURL: imageURL, description: description, createdTime: Timestamp.now(), isLiked: false);
+                            _databaseServicess.addPhotos(photoOne);
+                            Navigator.of(context).pop();
+                            nameController.clear();
+                            imageURLController.clear();
+                            descriptionController.clear();           
+                            },
+                            color: Color(0xffff6d00),
                             padding: EdgeInsets.only(left:50,right: 50,top:14,bottom:14),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(5.0),
                             ),
                               child: Text('Add',style: TextStyle(color: Colors.white,fontWeight: FontWeight.w700),),
-               
-                            
-                                                           ),
-                                ],
-                              ),
-                               
+                             ),
                             ],
-                            
-                           ),
-               
+                            ), 
+                            ],  
+                           ),               
                         ),
-                       
                        ),
-               
-               
                );
              }
            ),
-       
-
     );
   }
 }
